@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS VPC Peering Project | Rohith</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b1220;
+      color: #edf2ff;
+      line-height: 1.7;
+    }
+    header {
+      padding: 65px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #142a50, #075985);
+    }
+    header h1 { font-size: 36px; margin: 0 0 12px; }
+    header p { max-width: 700px; margin: auto; color: #dbeafe; }
+    main { max-width: 950px; margin: auto; padding: 28px 18px; }
+    section {
+      background: #151f32;
+      padding: 22px;
+      margin: 20px 0;
+      border: 1px solid #2b3b55;
+      border-radius: 14px;
+    }
+    h2 { color: #7dd3fc; margin-top: 0; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .card {
+      padding: 16px;
+      background: #0d1728;
+      border-radius: 10px;
+      border: 1px solid #2b3b55;
+    }
+    code {
+      color: #a7f3d0;
+      overflow-wrap: anywhere;
+    }
+    a {
+      display: inline-block;
+      color: #7dd3fc;
+      margin: 5px 12px 5px 0;
+    }
+    .success { color: #86efac; font-weight: bold; }
+    footer { text-align: center; padding: 25px; color: #aab8cf; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AWS VPC Peering Project</h1>
+    <p>Designed and tested private network connectivity between two Amazon VPCs using AWS networking services.</p>
+    <p>Project showcase by Rohith Thommandru</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Project Overview</h2>
+      <p>
+        This project demonstrates how to connect two Virtual Private Clouds
+        (VPCs) in AWS using VPC Peering, configure subnet route tables,
+        and verify private IP connectivity between EC2 instances.
+      </p>
+      <p><strong>Cloud provider:</strong> Amazon Web Services (AWS)</p>
+      <p><strong>Region:</strong> Asia Pacific (Sydney)</p>
+    </section>
+
+    <section>
+      <h2>Network Architecture</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>VPC A</h3>
+          <p><code>10.10.0.0/16</code></p>
+          <p>Public subnet: <code>10.10.1.0/24</code></p>
+          <p>Private subnet: <code>10.10.2.0/24</code></p>
+          <p>EC2 App A: <code>10.10.2.202</code></p>
+        </div>
+        <div class="card">
+          <h3>VPC Peering</h3>
+          <p>Connection: <code>ewb-a-b-peer</code></p>
+          <p>Purpose: private communication between VPC A and VPC B.</p>
+        </div>
+        <div class="card">
+          <h3>VPC B</h3>
+          <p><code>10.20.0.0/16</code></p>
+          <p>Private subnet: <code>10.20.1.0/24</code></p>
+          <p>EC2 App B: <code>10.20.1.170</code></p>
+        </div>
+      </div>
+      <p><em>Architecture summary based on the implemented project configuration.</em></p>
+    </section>
+
+    <section>
+      <h2>Implementation</h2>
+      <ul>
+        <li>Created two separate VPCs with non-overlapping CIDR blocks.</li>
+        <li>Created public and private subnets.</li>
+        <li>Attached an Internet Gateway for the public subnet in VPC A.</li>
+        <li>Established a VPC Peering connection.</li>
+        <li>Added routes to the remote VPC CIDR blocks.</li>
+        <li>Configured EC2 instances and security rules for connectivity testing.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Connectivity Test Results</h2>
+      <p class="success">Successful at the time of testing: both directions.</p>
+      <div class="card">
+        <p><strong>App A → App B</strong></p>
+        <code>ping -c 4 10.20.1.170</code>
+        <p>4 packets received, 0% packet loss.</p>
+      </div>
+      <div class="card">
+        <p><strong>App B → App A</strong></p>
+        <code>ping -c 4 10.10.2.202</code>
+        <p>4 packets received, 0% packet loss.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Skills Demonstrated</h2>
+      <p>
+        Amazon VPC · CIDR addressing · Public and private subnets ·
+        Route tables · VPC Peering · EC2 · Security Groups ·
+        Network troubleshooting · Linux ping testing · GitHub
+      </p>
+    </section>
+
+    <section>
+      <h2>Project Repository & Evidence</h2>
+      <p>Explore the source repository, project documentation, and uploaded screenshots.</p>
+      <a href="https://github.com/rohithtx6-source/aws-vpc-peering-project"
+         target="_blank" rel="noopener noreferrer">View GitHub Repository →</a>
+      <p><small>This page is a project showcase, not a live AWS application.</small></p>
+    </section>
+  </main>
+
+  <footer>
+    AWS VPC Peering Project · Rohith Thommandru
+  </footer>
+</body>
+</html>
